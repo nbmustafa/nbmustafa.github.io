@@ -1,15 +1,17 @@
-### EKS Enabling Cross-account Access to Secrets Stored in AWS Secret Manager
+# EKS: Enabling Cross-Account Access to Secrets Stored in AWS Secrets Manager
 
 ![Author Nashwan](https://img.shields.io/badge/Author-Nashwan%20Mustafa-orange.svg?style=flat-square)
 
-To enable cross-account access to AWS Secrets Manager secrets from an Amazon EKS cluster, you can follow these steps:
+This guide explains how to enable **cross-account access** to AWS Secrets Manager secrets from an Amazon EKS cluster using **IAM Roles for Service Accounts (IRSA)**.
 
-### Step-by-Step Guide
+---
 
-#### Step 1: Create an IAM Role in the Target Account (Secrets Manager Account)
+## 🛠 Step-by-Step Guide
 
-1. **Create an IAM Role**:
-   In the account where the secrets are stored, create an IAM role that allows the EKS cluster to assume it.
+### **Step 1: Create an IAM Role in the Target Account (Secrets Manager Account)**
+
+1. **Create an IAM Role**  
+   In the account where the secrets are stored, create an IAM role that allows the EKS cluster to assume it:
 
    ```json
    {
@@ -24,10 +26,10 @@ To enable cross-account access to AWS Secrets Manager secrets from an Amazon EKS
        }
      ]
    }
-   ```
+````
 
-2. **Attach a Policy to Access Secrets Manager**:
-   Attach a policy to this role that grants permissions to access the secrets.
+2. **Attach a Policy to Access Secrets Manager**
+   Grant the role permissions to read the required secrets:
 
    ```json
    {
@@ -45,26 +47,28 @@ To enable cross-account access to AWS Secrets Manager secrets from an Amazon EKS
    }
    ```
 
-#### Step 2: Enable IAM Roles for Service Accounts (IRSA) in EKS
+---
 
-1. **Create an OIDC Identity Provider**:
-   Determine the OIDC issuer URL for your EKS cluster and create an OIDC identity provider.
+### **Step 2: Enable IAM Roles for Service Accounts (IRSA) in EKS**
+
+1. **Create an OIDC Identity Provider**
 
    ```sh
-   aws eks describe-cluster --name <cluster_name> --query "cluster.identity.oidc.issuer" --output text
+   aws eks describe-cluster --name <cluster_name> \
+     --query "cluster.identity.oidc.issuer" --output text
    ```
 
-   - Use the output URL to create the identity provider.
+   Use the OIDC issuer URL to create the provider:
 
    ```sh
    aws iam create-open-id-connect-provider \
-       --url https://oidc.eks.<region>.amazonaws.com/id/<eks_cluster_id> \
-       --client-id-list sts.amazonaws.com \
-       --thumbprint-list <thumbprint>
+     --url https://oidc.eks.<region>.amazonaws.com/id/<eks_cluster_id> \
+     --client-id-list sts.amazonaws.com \
+     --thumbprint-list <thumbprint>
    ```
 
-2. **Create an IAM Role for the Service Account**:
-   Create an IAM role with a trust policy that allows the EKS OIDC provider to assume the role.
+2. **Create an IAM Role for the Service Account**
+   Define a trust policy for the OIDC provider:
 
    ```json
    {
@@ -86,15 +90,19 @@ To enable cross-account access to AWS Secrets Manager secrets from an Amazon EKS
    }
    ```
 
-   Attach the necessary policies to this role.
+   Create the role and attach the required policy:
 
    ```sh
-   aws iam create-role --role-name <role_name> --assume-role-policy-document file://trust-policy.json
-   aws iam attach-role-policy --role-name <role_name> --policy-arn arn:aws:iam::aws:policy/AmazonSecretsManagerReadOnly
+   aws iam create-role \
+     --role-name <role_name> \
+     --assume-role-policy-document file://trust-policy.json
+
+   aws iam attach-role-policy \
+     --role-name <role_name> \
+     --policy-arn arn:aws:iam::aws:policy/AmazonSecretsManagerReadOnly
    ```
 
-3. **Associate the IAM Role with a Kubernetes Service Account**:
-   Create a Kubernetes service account and annotate it with the IAM role ARN.
+3. **Associate IAM Role with Kubernetes Service Account**
 
    ```yaml
    apiVersion: v1
@@ -106,16 +114,17 @@ To enable cross-account access to AWS Secrets Manager secrets from an Amazon EKS
        eks.amazonaws.com/role-arn: arn:aws:iam::<account_id>:role/<role_name>
    ```
 
-   Apply this configuration to your EKS cluster.
+   Apply it:
 
    ```sh
    kubectl apply -f service-account.yaml
    ```
 
-#### Step 3: Configure Pods to Assume the IAM Role
+---
 
-1. **Deploy Pods Using the Service Account**:
-   Ensure your pod specification uses the service account created in the previous step.
+### **Step 3: Configure Pods to Use the IAM Role**
+
+1. **Deploy Pods Using the Service Account**
 
    ```yaml
    apiVersion: apps/v1
@@ -135,30 +144,34 @@ To enable cross-account access to AWS Secrets Manager secrets from an Amazon EKS
        spec:
          serviceAccountName: <service_account_name>
          containers:
-         - name: <container_name>
-           image: <image_uri>
-           ports:
-           - containerPort: 80
+           - name: <container_name>
+             image: <image_uri>
+             ports:
+               - containerPort: 80
    ```
 
-   Apply the deployment to your EKS cluster.
+   Apply the deployment:
 
    ```sh
    kubectl apply -f deployment.yaml
    ```
 
-2. **Verify the Pod Assumes the IAM Role**:
-   Check the logs of your pod to ensure it has the necessary permissions to access the secrets.
+2. **Verify IAM Role Assumption**
 
    ```sh
    kubectl logs <pod_name>
    ```
 
-By following these steps, your EKS pods should be able to assume the IAM role and access the secrets in the target account. For more detailed information, you can refer to the AWS documentation on [cross-account access with IRSA](https://docs.aws.amazon.com/eks/latest/userguide/cross-account-access.html)² and [integrating AWS Secrets Manager with EKS](https://community.aws/content/2eKLFwELDylv0Sfuj3JLd6Out9W/navigating-amazon-eks-eks-integrate-secrets-manager)³.
+   Check that the pod can retrieve the secret.
 
-Sources:
-(1) Authenticate to another account with IRSA - Amazon EKS. https://docs.aws.amazon.com/eks/latest/userguide/cross-account-access.html.
-(2) Easily Consume AWS Secrets Manager Secrets From Your Amazon EKS Workloads. https://community.aws/content/2eKLFwELDylv0Sfuj3JLd6Out9W/navigating-amazon-eks-eks-integrate-secrets-manager.
-(3) Enabling cross-account access to Amazon EKS cluster resources. https://aws.amazon.com/blogs/containers/enabling-cross-account-access-to-amazon-eks-cluster-resources/.
-(4) Provide access to other IAM users and roles after cluster creation in .... https://repost.aws/knowledge-center/amazon-eks-cluster-access.
-(5) Accessing AWS Secret Manager in Kubernetes Service Cluster - Xebia. https://xebia.com/blog/how-to-access-your-aws-secret-manager-secrets-in-an-elastic-kubernetes-service-cluster/.
+---
+
+## 📚 References
+
+* [Authenticate to another account with IRSA - Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/cross-account-access.html)
+* [Consume AWS Secrets Manager Secrets From EKS Workloads](https://community.aws/content/2eKLFwELDylv0Sfuj3JLd6Out9W/navigating-amazon-eks-eks-integrate-secrets-manager)
+* [Enabling Cross-Account Access to EKS Cluster Resources](https://aws.amazon.com/blogs/containers/enabling-cross-account-access-to-amazon-eks-cluster-resources/)
+* [Provide Access to Other IAM Users and Roles After Cluster Creation](https://repost.aws/knowledge-center/amazon-eks-cluster-access)
+* [Xebia: Accessing AWS Secrets Manager in EKS](https://xebia.com/blog/how-to-access-your-aws-secret-manager-secrets-in-an-elastic-kubernetes-service-cluster/)
+
+
