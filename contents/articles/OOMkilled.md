@@ -1,3 +1,7 @@
+# Troubleshooting OOMKilled in Kubernetes
+
+![Author Nashwan](https://img.shields.io/badge/Author-Nashwan%20Mustafa-orange.svg?style=flat-square)
+
 An "OOMKilled" error occurs when a container or process is terminated because it exceeds the memory limit allocated to it. This is commonly encountered in containerized environments like Kubernetes or Docker. Here are steps to diagnose and fix the issue:
 
 

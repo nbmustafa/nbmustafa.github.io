@@ -1,5 +1,6 @@
 ### AWS Secrets Manager with Kubernetes Secrets Store CSI Driver
 
+![Author Nashwan](https://img.shields.io/badge/Author-Nashwan%20Mustafa-orange.svg?style=flat-square)
 
 ### Overview
 The **AWS Secrets and Configuration Provider (ASCP)** for the Kubernetes Secrets Store CSI Driver allows you to securely mount secrets stored in AWS Secrets Manager as files in your Amazon EKS pods. This integration ensures that secrets are encrypted at rest and in transit, and supports automatic rotation.

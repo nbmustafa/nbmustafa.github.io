@@ -1,6 +1,7 @@
+# Cost-Optimization with Shared VPC endpoints in a Multi-Account TGW setup
+
 ![Author Nashwan](https://img.shields.io/badge/Author-Nashwan%20Mustafa-orange.svg?style=flat-square)
 
-# Cost-Optimization with Shared VPC endpoints in a Multi-Account TGW setup
 ## About the Solution
 
 The cost of VPC endpoints depends on multiple factors like the number of endpoints. Although Interface Endpoints scale more cleanly as the number of services increases, they introduce another scaling problem that makes the previous approach of deploying per-VPC impracticable: 

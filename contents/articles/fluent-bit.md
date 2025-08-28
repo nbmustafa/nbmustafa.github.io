@@ -1,4 +1,4 @@
-### Shipping Logs from Kubernetes to CloudWatch log groups with fluent-bit
+## Shipping Logs from Kubernetes to CloudWatch log groups with fluent-bit
 
 ![Author Nashwan](https://img.shields.io/badge/Author-Nashwan%20Mustafa-orange.svg?style=flat-square)
 
