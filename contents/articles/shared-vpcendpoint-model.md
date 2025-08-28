@@ -50,6 +50,7 @@ The shared VPC endpoint model achieves significant cost savings by centralizing 
 | Data Transfer Costs      | Potential NAT Gateway/Internet costs | None (within AWS network)      | Significant savings           |
 | Management Overhead      | High (1,000 accounts)                | Low (centralized)              | Reduced administrative costs  |
 
+
 - **Centralized Endpoints**: By deploying endpoints once in the Shared VPC, we avoid the cost of 10,000 endpoints (1,000 accounts × 10 endpoints), reducing monthly costs from $270,000 to $270, a 99.9% reduction.
 - **No Data Transfer Costs**: Traffic via VPC endpoints stays within the AWS network backbone, avoiding charges for NAT Gateways or Internet Gateways ($0.045/GB in us-east-1).
 - **Gateway Endpoints**: Free for S3 and DynamoDB, further reducing costs compared to using Interface Endpoints for these services in a decentralized model.
