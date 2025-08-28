@@ -9,7 +9,7 @@
 
 #### Welcome to My Homepage
 
-A Senior Platform Engineer with extensive 13 years of experience working in ITIL environments, with primary focus on DevSecOps, AWS and GCP cloud, Kubernetes, multi-organisation,  multi-tenant platform environment, CICD, automation, GitOps, cloud security, cloud migration and re-architectur, containers, EKS, GKE, service mesh, and serverless.
+A Lead Platform Engineer with extensive 15 years of experience working in ITIL environments, with primary focus on DevSecOps, AWS and GCP cloud, Kubernetes, multi-organisation,  multi-tenant platform environment, CICD, automation, GitOps, cloud security, cloud migration and re-architectur, containers, EKS, GKE, service mesh, and serverless.
 
 #### Technologies and toolings:
 - Cloud: AWS, GCP, Azure
