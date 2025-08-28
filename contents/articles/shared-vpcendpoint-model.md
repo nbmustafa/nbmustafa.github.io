@@ -52,7 +52,7 @@ By centralizing VPC endpoints into a **Shared Services VPC** and connecting acco
  - Single TGW simplifies connectivity compared to managing many **VPC peering** connections.
 
 5. **Route 53 Private Hosted Zone (PHZ) Cost**
- - One PHZ (~$0.50/month) shared via **RAM**, instead of one per account.
+ - VPC IDs of spoke accounts are associated with PHZ (~$0.50/month) , instead of one per account.
 
 ---
 
