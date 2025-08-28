@@ -79,12 +79,12 @@ By centralizing VPC endpoints into a **Shared Services VPC** and connecting acco
 ### Resources Created
 From the **Shared VPC account** (assuming VPCs & TGW already exist):
 
-1. Create Interface VPC Endpoints in Shared Services VPC.  
+1. Create Interface VPC Endpoints in Shared Services VPC - core network account.  
 2. Disable **Private DNS** when creating endpoints.  
 3. Create a **Private Hosted Zone (PHZ)** matching the endpoint name (e.g., `ec2.amazonaws.com`) for DNS control.  
 
 Next:
-1. Associate the PHZ with other accounts.  
+1. Associate the spoke accounts' VPC IDs with vpc endpoint PHZ created in the core network account where vpc-endpoints are created.  
 2. Ensure proper subnet routing & security groups.  
 
 ---
