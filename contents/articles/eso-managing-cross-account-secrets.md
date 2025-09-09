@@ -1,4 +1,4 @@
-🔐 ## Cross-Account Secrets Management for Multi-Tenant EKS with Terraform & External Secrets Operator
+## 🔐 Cross-Account Secrets Management for Multi-Tenant EKS with Terraform & External Secrets Operator
 
 As Kubernetes platform engineers, we often face the challenge of securely sharing secrets across AWS accounts.
 
@@ -54,7 +54,7 @@ We’ll define two Terraform modules:
 
 Create a role mgmt-secrets-reader-role with read-only permissions and trust policy for tenant principals.
 
-# Management Account
+### Management Account
 ```hcl
 resource "aws_iam_policy" "read_secrets" {
   name        = "mgmt-secrets-reader-policy"
@@ -105,7 +105,7 @@ Condition = {
 In each tenant account, create an IRSA role bound to ESO’s ServiceAccount.
 This role is only allowed to sts:AssumeRole into the mgmt role.
 
-# Tenant Account
+### Tenant Account
 ```hcl
 resource "aws_iam_role" "tenant_irsa" {
   name = "tenant-eso-irsa-role"
@@ -239,6 +239,4 @@ Minimal ops overhead, even with 200+ tenants
 
 
 ---
-
-👉 Next step: I can package this into ready-to-use Terraform modules (mgmt-role, tenant-irsa, eso-deploy) for faster onboarding. Want me to generate those modules next?
 
