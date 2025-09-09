@@ -1,4 +1,4 @@
-🔐 ##Cross-Account Secrets Management for Multi-Tenant EKS with Terraform & External Secrets Operator
+🔐 ## Cross-Account Secrets Management for Multi-Tenant EKS with Terraform & External Secrets Operator
 
 As Kubernetes platform engineers, we often face the challenge of securely sharing secrets across AWS accounts.
 
