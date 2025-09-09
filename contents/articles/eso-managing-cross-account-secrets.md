@@ -1,4 +1,4 @@
-🔐 Cross-Account Secrets Management for Multi-Tenant EKS with Terraform & External Secrets Operator
+🔐 ##Cross-Account Secrets Management for Multi-Tenant EKS with Terraform & External Secrets Operator
 
 As Kubernetes platform engineers, we often face the challenge of securely sharing secrets across AWS accounts.
 
@@ -55,6 +55,7 @@ We’ll define two Terraform modules:
 Create a role mgmt-secrets-reader-role with read-only permissions and trust policy for tenant principals.
 
 # Management Account
+```hcl
 resource "aws_iam_policy" "read_secrets" {
   name        = "mgmt-secrets-reader-policy"
   description = "Read-only access for ESO tenants"
@@ -96,7 +97,7 @@ Condition = {
   }
 }
 
-
+```
 ---
 
 2. Tenant Account Setup
@@ -105,6 +106,7 @@ In each tenant account, create an IRSA role bound to ESO’s ServiceAccount.
 This role is only allowed to sts:AssumeRole into the mgmt role.
 
 # Tenant Account
+```hcl
 resource "aws_iam_role" "tenant_irsa" {
   name = "tenant-eso-irsa-role"
 
@@ -127,9 +129,11 @@ resource "aws_iam_role_policy_attachment" "attach" {
   role       = aws_iam_role.tenant_irsa.name
   policy_arn = aws_iam_policy.allow_assume.arn
 }
+```
 
 Bind the role to ESO’s ServiceAccount:
 
+```yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -137,14 +141,14 @@ metadata:
   namespace: external-secrets
   annotations:
     eks.amazonaws.com/role-arn: arn:aws:iam::<tenant_id>:role/tenant-eso-irsa-role
-
+```
 
 ---
 
 🌐 External Secrets Operator Config
 
 Point ESO to the mgmt role:
-
+```yaml
 apiVersion: external-secrets.io/v1beta1
 kind: ClusterSecretStore
 metadata:
@@ -177,7 +181,7 @@ spec:
       remoteRef:
         key: prod/db/password
 
-
+```
 ---
 
 ⚖️ Alternative Approach (Resource Policies)
