@@ -26,6 +26,7 @@ A Lead Platform Engineer with extensive 15 years of experience working in ITIL e
 - Implementing GitOps with fluxCD and OCI
 
 #### Professional Certifications
+- AWS Machine Learning Engineer - Associate MLA - C01
 - Certified Kubernetes Application Developer (CKAD)
 - AWS Security Speciality
 - AWS Certified Solution Architect 
