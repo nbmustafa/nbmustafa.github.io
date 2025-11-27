@@ -17,7 +17,7 @@ In summary, Istio Ambient Mode helps reduce resource overhead and simplifies the
 - A zero-trust overlay (with mTLS, telemetry, authentication, and L4 authorization) is established when the ambient mode is activated for a namespace.
 - For L7 features, a namespace can deploy one or more Envoy-based waypoint proxies. These proxies can be auto-scaled according to real-time traffic demand.
 
-<img width="50%" align="centre" alt="Github" src="./contents/articles/images/ambient-2.gif" />
+<img width="50%" align="centre" alt="Github" src="./contents/articles/images/ambient-3.gif" />
 
 ### Security Considerations
 Ambient Mesh prioritizes security:
