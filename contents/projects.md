@@ -55,3 +55,4 @@ Improved Kubernetes platform security through policy-driven controls and service
 I also maintain practical Kubernetes learning scenarios in Killercoda.
 
 - [killercoda.com/nashwan](https://killercoda.com/nashwan)
+- [Kubernetes Sandbox Bootstrap](article.html?file=kubernetes-sandbox.md)
