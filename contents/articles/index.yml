@@ -67,3 +67,8 @@ articles:
     summary: Structured notes and pointers for preparing for the AWS Machine Learning Engineer Associate certification.
     topic: Certification
     date: 2025-09-28
+  - file: kubernetes-sandbox.md
+    title: Kubernetes Sandbox Bootstrap
+    summary: A single-script local Kubernetes sandbox with Kind, ArgoCD, Prometheus, Grafana, and locally stored Helm charts for repeatable GitOps testing.
+    topic: Kubernetes
+    date: 2026-01-25
