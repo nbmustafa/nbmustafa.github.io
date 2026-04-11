@@ -113,6 +113,63 @@ section .main-body{
     margin-top: 2rem;
 }
 
+.articles-layout {
+    display: grid;
+    grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+}
+
+.article-sidebar {
+    position: sticky;
+    top: 7rem;
+}
+
+.article-sidebar-card {
+    background: #ffffff;
+    border: 1px solid var(--border-soft);
+    border-radius: 1rem;
+    padding: 1.25rem;
+    box-shadow: 0 1rem 2rem rgba(28, 18, 13, 0.05);
+}
+
+.article-sidebar-title,
+.article-topic-heading,
+.article-detail-title {
+    font-family: "Newsreader", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.article-sidebar-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.article-topic-nav {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.article-topic-link {
+    color: var(--text-muted);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.article-grouped-list {
+    display: grid;
+    gap: 2.5rem;
+}
+
+.article-topic-section {
+    scroll-margin-top: 7rem;
+}
+
+.article-topic-heading {
+    color: var(--h-title-color);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
 .article-grid {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
@@ -151,6 +208,14 @@ section .main-body{
     margin-bottom: 1rem;
 }
 
+.article-card-date,
+.article-detail-date {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5rem;
+    margin-bottom: 0.9rem;
+}
+
 .article-card-link {
     margin-bottom: 0;
 }
@@ -160,6 +225,15 @@ section .main-body{
 .article-back-link a {
     font-weight: 700;
     text-decoration: none;
+}
+
+.article-detail-header {
+    margin-bottom: 2rem;
+}
+
+.article-detail-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 0.5rem;
 }
 
 
@@ -223,6 +297,14 @@ section .main-body{
 
     .page-hero {
         min-height: 18rem;
+    }
+
+    .articles-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .article-sidebar {
+        position: static;
     }
 
     .photo img {

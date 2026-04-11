@@ -72,14 +72,93 @@ function createArticleCard(article, compact) {
     wrapper.className = compact ? 'article-card article-card-featured' : 'article-card';
 
     const topic = article.topic ? `<p class="article-meta">${article.topic}</p>` : '';
+    const date = article.date ? `<p class="article-card-date">${formatArticleDate(article.date)}</p>` : '';
     wrapper.innerHTML = `
         ${topic}
         <h3 class="article-card-title"><a href="article.html?file=${encodeURIComponent(article.file)}">${article.title}</a></h3>
+        ${date}
         <p class="article-card-summary">${article.summary}</p>
         <p class="article-card-link"><a href="article.html?file=${encodeURIComponent(article.file)}">Read article</a></p>
     `;
 
     return wrapper;
+}
+
+function formatArticleDate(dateString) {
+    const parsedDate = dateString instanceof Date
+        ? dateString
+        : new Date(`${dateString}T00:00:00`);
+    if (Number.isNaN(parsedDate.getTime())) {
+        return String(dateString);
+    }
+
+    return parsedDate.toLocaleDateString('en-AU', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+    });
+}
+
+function slugifyTopic(topic) {
+    return topic.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+
+function renderTopicNav(articles) {
+    const topicNav = document.querySelector('[data-article-topics]');
+    if (!topicNav) {
+        return;
+    }
+
+    const topics = [...new Set(articles.map(article => article.topic).filter(Boolean))].sort();
+    topics.forEach(topic => {
+        const link = document.createElement('a');
+        link.className = 'article-topic-link';
+        link.href = `#topic-${slugifyTopic(topic)}`;
+        link.textContent = topic;
+        topicNav.appendChild(link);
+    });
+}
+
+function renderGroupedArticles(articles, node) {
+    const topics = [...new Set(articles.map(article => article.topic).filter(Boolean))].sort();
+
+    topics.forEach(topic => {
+        const section = document.createElement('section');
+        section.className = 'article-topic-section';
+        section.id = `topic-${slugifyTopic(topic)}`;
+
+        const heading = document.createElement('h2');
+        heading.className = 'article-topic-heading';
+        heading.textContent = topic;
+        section.appendChild(heading);
+
+        const cards = document.createElement('div');
+        cards.className = 'article-list';
+        articles
+            .filter(article => article.topic === topic)
+            .sort(compareArticlesByDate)
+            .forEach(article => cards.appendChild(createArticleCard(article, false)));
+
+        section.appendChild(cards);
+        node.appendChild(section);
+    });
+}
+
+function compareArticlesByDate(left, right) {
+    if (!left.date && !right.date) {
+        return left.title.localeCompare(right.title);
+    }
+    if (!left.date) {
+        return 1;
+    }
+    if (!right.date) {
+        return -1;
+    }
+
+    const leftDate = left.date instanceof Date ? left.date : new Date(`${left.date}T00:00:00`);
+    const rightDate = right.date instanceof Date ? right.date : new Date(`${right.date}T00:00:00`);
+
+    return rightDate - leftDate;
 }
 
 function renderArticleLists(articles) {
@@ -90,7 +169,12 @@ function renderArticleLists(articles) {
         let selectedArticles = articles;
 
         if (mode === 'featured') {
-            selectedArticles = articles.filter(article => article.featured);
+            selectedArticles = articles.filter(article => article.featured).sort(compareArticlesByDate);
+        }
+
+        if (mode === 'grouped') {
+            renderGroupedArticles(articles, node);
+            return;
         }
 
         if (limit > 0) {
@@ -119,6 +203,7 @@ function loadArticles() {
         .then(text => {
             const yml = jsyaml.load(text);
             const articles = yml.articles || [];
+            renderTopicNav(articles);
             renderArticleLists(articles);
             return articles;
         })
