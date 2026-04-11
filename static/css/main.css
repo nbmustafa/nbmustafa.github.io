@@ -3,6 +3,9 @@
 
 :root{
     --h-title-color:#f0522e;
+    --surface-color: #fffaf7;
+    --border-soft: rgba(240, 82, 46, 0.16);
+    --text-muted: #5f5a57;
 }
 
 .header {
@@ -51,6 +54,112 @@ section .main-body{
     font-size: 1.1rem;
     font-weight: 200;
     line-height: 2.4rem;
+}
+
+.section-kicker {
+    color: var(--h-title-color);
+    font-size: 1.1rem !important;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.section-intro,
+.section-link,
+.article-back-link {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.8rem;
+}
+
+.page-header {
+    padding-top: 2rem;
+}
+
+.page-hero {
+    height: auto;
+    min-height: 22rem;
+    display: flex;
+    align-items: flex-end;
+}
+
+.page-hero-copy {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    max-width: 44rem;
+}
+
+.page-hero-kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+}
+
+.page-hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 1rem;
+}
+
+.page-hero-summary {
+    font-size: 1.1rem;
+    line-height: 1.9rem;
+}
+
+.article-grid,
+.article-list {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.article-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.article-card {
+    background: var(--surface-color);
+    border: 1px solid var(--border-soft);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 1rem 2.2rem rgba(28, 18, 13, 0.06);
+}
+
+.article-card-featured {
+    height: 100%;
+}
+
+.article-meta {
+    color: var(--h-title-color);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+}
+
+.article-card-title {
+    font-size: 1.35rem;
+    line-height: 1.6rem;
+    margin-bottom: 0.9rem;
+}
+
+.article-card-summary {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+.article-card-link {
+    margin-bottom: 0;
+}
+
+.article-card-link a,
+.section-link a,
+.article-back-link a {
+    font-weight: 700;
+    text-decoration: none;
 }
 
 
@@ -112,6 +221,10 @@ section .main-body{
 
 @media screen and (max-width: 991px) {
 
+    .page-hero {
+        min-height: 18rem;
+    }
+
     .photo img {
         height: 12rem;
         margin-top: 3rem;
@@ -120,6 +233,11 @@ section .main-body{
 }
 
 @media screen and (max-width: 736px) {
+
+    .article-grid,
+    .article-list {
+        gap: 1rem;
+    }
 
     .photo img {
         height: 7rem;
