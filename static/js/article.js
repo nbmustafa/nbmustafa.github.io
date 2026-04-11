@@ -1,49 +1,62 @@
-// Configuration for Marked.js to disable mangling and header IDs
-marked.use({ mangle: false, headerIds: false });
-
-// Function to get a URL query parameter
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
 }
 
-// Fetch and parse markdown files
-function loadMarkdownFiles(fileNames) {
-    fileNames.forEach(name => {
-        fetch(`contents/articles/${name}`)  // Use backticks for template literals
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Failed to load ${name}.md: ${response.statusText}`);  // Backticks for error message
-                }
-                return response.text();
-            })
-            .then(markdown => {
-                // Convert markdown to HTML using marked.js
-                const html = marked.parse(markdown);
-                // Dynamically create a div to display the markdown content
-                const markdownDiv = document.createElement('div');
-                markdownDiv.id = `${name}-md`;  // Backticks for setting the id
-                markdownDiv.innerHTML = html;
-                document.getElementById('article-content').appendChild(markdownDiv);
-            })
-            .then(() => {
-                // Process MathJax if needed
-                if (typeof MathJax !== 'undefined') {
-                    MathJax.typeset();
-                }
-            })
-            .catch(error => console.error('Error loading markdown:', error));
+function loadArticleMetadata(fileName) {
+    return fetch('contents/articles/index.yml')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to load article metadata');
+            }
+            return response.text();
+        })
+        .then(text => {
+            const articleManifest = jsyaml.load(text);
+            const articles = articleManifest.articles || [];
+            return articles.find(article => article.file === fileName);
+        })
+        .catch(error => {
+            console.error('Error loading article metadata:', error);
+            return null;
+        });
+}
+
+function loadArticle(fileName) {
+    marked.use({ mangle: false, headerIds: false });
+
+    fetch(`contents/articles/${fileName}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Failed to load ${fileName}: ${response.statusText}`);
+            }
+            return response.text();
+        })
+        .then(markdown => {
+            document.getElementById('article-content').innerHTML = marked.parse(markdown);
+            if (typeof MathJax !== 'undefined') {
+                MathJax.typeset();
+            }
+        })
+        .catch(error => {
+            console.error('Error loading markdown:', error);
+            document.getElementById('article-content').innerHTML = '<p>Unable to load this article.</p>';
+        });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    const fileName = getQueryParam('file');
+    if (!fileName) {
+        document.getElementById('article-content').innerHTML = '<p>No article specified. Please provide an article in the URL.</p>';
+        return;
+    }
+
+    loadArticleMetadata(fileName).then(article => {
+        if (article) {
+            document.getElementById('article-title').textContent = article.title;
+            document.title = `${article.title} | Nashwan Mustafa`;
+        }
     });
-}
 
-// Get the article file name from the URL query parameter
-const fileName = getQueryParam('file');
-
-// Load and parse the markdown file(s) if the file name is provided
-if (fileName) {
-    // Split file names by comma if multiple files are given
-    const sectionNames = fileName.split(',').map(name => name.trim());
-    loadMarkdownFiles(sectionNames);
-} else {
-    document.getElementById('article-content').innerHTML = "<p>No article specified. Please provide an article in the URL.</p>";
-}
+    loadArticle(fileName);
+});
