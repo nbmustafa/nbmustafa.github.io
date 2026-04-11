@@ -53,26 +53,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
     loadArticleMetadata(fileName).then(article => {
         if (article) {
-            document.getElementById('article-title').textContent = article.title;
             document.title = `${article.title} | Nashwan Mustafa`;
-            document.getElementById('article-date').textContent = article.date ? formatArticleDate(article.date) : '';
         }
     });
 
     loadArticle(fileName);
 });
-
-function formatArticleDate(dateString) {
-    const parsedDate = dateString instanceof Date
-        ? dateString
-        : new Date(`${dateString}T00:00:00`);
-    if (Number.isNaN(parsedDate.getTime())) {
-        return String(dateString);
-    }
-
-    return parsedDate.toLocaleDateString('en-AU', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-    });
-}
