@@ -17,49 +17,67 @@ Highly accomplished Cloud and Platform Engineer with 15+ years of experience del
 **Lead Platform Engineer, Public Cloud Container Service**  
 June 2025 - Current
 
-Focused on modern Kubernetes platform engineering for public cloud container services, with an emphasis on GitOps, self-service platform delivery, and secure operational patterns.  
-Contributing to repeatable EKS platform capabilities, automation workflows, and guardrail-driven engineering practices in a regulated enterprise environment.
+- Contributing to the development of a GitOps-driven EKS platform designed to enable self-service Kubernetes provisioning
+- Designing and building Terraform and ArgoCD workflows to streamline cluster delivery and standardise platform patterns
+- Supporting self-service cluster creation and repeatable platform deployments across engineering teams
+- Embedding security and compliance guardrails into modern cloud platform workflows
 
 ### Australia and New Zealand Banking Group
 **Lead Platform Engineer, Managed Kubernetes Squad**  
 July 2023 - Current
 
-Led managed Kubernetes platform improvements across scalability, consistency, GitOps adoption, and multi-tenant operating models.  
-Helped shape secure AWS and EKS platform patterns, service mesh controls, and onboarding approaches for long-term platform growth.
+- Led platform pattern analysis and implemented improvements to strengthen scalability, consistency, and operational efficiency
+- Built Kubernetes service foundations aligned with long-term platform growth and multi-tenant operating models
+- Developed secure AWS and Kubernetes deployment patterns for repeatable releases across environments
+- Drove GitOps adoption and reduced delivery friction, configuration drift, and manual operational overhead
+- Designed and implemented multi-tenant, multi-region EKS platform patterns and scalable tenant onboarding
+- Implemented and operated Istio service mesh capabilities for ingress, egress, and traffic governance
 
 **Tech Lead Engineer, AWS Cloud Platform**  
 January 2022 - July 2023
 
-Provided technical leadership across AWS cloud platform engineering, automation, governance, and multi-account service design.  
-Focused on improving delivery workflows, strengthening platform controls, and supporting reliable cloud foundations for enterprise teams.
+- Led CI/CD and Terraform automation for a large-scale AWS cloud platform estate
+- Automated AWS account provisioning and environment setup to accelerate platform onboarding
+- Built and supported AWS networking patterns across a large multi-account environment
+- Strengthened cloud governance through SCPs, IAM controls, and platform-level security guardrails
+- Provided technical leadership, design review, and platform engineering guidance for enterprise cloud services
 
 ### National Australia Bank
 **Senior DevOps Engineer, Engineering Foundation - EKS Team**  
 September 2019 - January 2022
 
-Worked across Kubernetes, ECS, and AWS platform engineering to support modern application delivery in banking environments.  
-Contributed to infrastructure automation, CI/CD improvement, platform reliability, and stronger operational compliance practices.
+- Supported Kubernetes and ECS platforms powering a large number of microservices and internal workloads
+- Delivered AWS-based solutions for high-demand banking and contact-centre workloads
+- Built infrastructure automation using Terraform, Ansible, and Python to reduce manual effort
+- Developed CI/CD delivery pipelines and improved release speed, repeatability, and reliability
+- Strengthened platform testing, patching, and operational compliance practices
 
 ### Queensland Government, Department of Health
 **Cloud Operations Specialist, Cloud Services Team**  
 October 2017 - September 2019
 
-Provided cloud operations and migration support across Azure and AWS in a large public-sector health environment.  
-Helped design and deliver scalable cloud solutions for multiple teams and services with a focus on reliability and operational efficiency.
+- Provided technical direction across Azure and AWS migration and cloud operations initiatives
+- Delivered cloud solutions for multiple teams and services in a large public-sector health environment
+- Designed scalable cloud patterns to support broad organisational and statewide requirements
 
 ### RT Group and NGC Group
 **Cloud Engineer**  
 December 2015 - August 2017
 
-Delivered AWS-based cloud engineering, solution design, and security improvements for client-facing infrastructure and application workloads.  
-Supported architecture, consulting, and automation work across business-critical digital services and operational environments.
+- Implemented cloud solutions for multiple clients across infrastructure, application hosting, and security domains
+- Architected AWS environments for business-critical payment and digital services workloads
+- Supported client-facing technical consulting, solution design, and security improvement initiatives
+- Automated operational tasks and device management using infrastructure automation tools
 
 ### Department of Government Digital Services, Kurdistan Government
 **Network Systems Engineer**  
 August 2008 - December 2015
 
-Built and supported datacentre, network, virtualisation, and infrastructure services for government digital platforms over a long-term engineering role.  
-Focused on operational reliability, infrastructure security, automation, and team support across critical public-sector services.
+- Designed datacentre and infrastructure solutions for government digital services
+- Automated operational tasks and improved service reliability across network and systems environments
+- Managed large-scale virtualisation, storage, backup, and high-availability infrastructure
+- Implemented network security solutions and supported stable service delivery across critical platforms
+- Led and mentored technical team members while supporting operational service targets
 
 ## Selected Certifications
 
