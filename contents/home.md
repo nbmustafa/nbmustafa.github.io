@@ -2,12 +2,14 @@
 
 ## Hi, I'm Nashwan
 
-I’m a Lead Platform Engineer with 15+ years of experience designing secure cloud and Kubernetes platforms. My work focuses on platform engineering, DevSecOps, multi-account cloud environments, automation, and the operational patterns that help teams ship safely at scale.
+I’m a Lead Platform Engineer with 15+ years of experience designing secure cloud and Kubernetes platforms. My work focuses on platform engineering, DevSecOps, multi-account cloud environments, automation, AI agentic orchestration, retrieval-augmented generation (RAG), MLOps, and the operational patterns that help teams ship safely at scale.
 
 ### What I focus on
 
 - Building and evolving Kubernetes and cloud platforms across AWS and GCP
 - Improving delivery through GitOps, CI/CD, infrastructure as code, and automation
+- Designing AI agentic orchestration and RAG-based solutions for practical engineering use cases
+- Deploying MLOps and AI infrastructure patterns that support reliable, production-ready workloads
 - Solving security, networking, and multi-tenant architecture challenges in enterprise environments
 
 ### Selected highlights

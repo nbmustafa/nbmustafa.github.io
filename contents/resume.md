@@ -1,11 +1,12 @@
 ## Summary
 
-Lead Platform Engineer with 15+ years of experience across cloud infrastructure, Kubernetes platforms, DevSecOps, automation, and IT service environments. My recent work has centered on AWS and GCP platforms, secure multi-tenant architecture, cloud networking, GitOps, and platform security.
+Lead Platform Engineer with 15+ years of experience across cloud infrastructure, Kubernetes platforms, DevSecOps, automation, AI and machine learning, and IT service environments. My recent work has centered on AWS and GCP platforms, secure multi-tenant architecture, cloud networking, GitOps, platform security, AI agentic orchestration, retrieval-augmented generation (RAG), and practical MLOps and AI infrastructure deployment.
 
 ## Core Areas
 
 - Cloud platforms: AWS, GCP, and Azure
 - Platform engineering: Kubernetes, EKS, GKE, containers, service mesh, and serverless patterns
+- AI and machine learning: AI agentic orchestration, retrieval-augmented generation (RAG), MLOps, and AI infrastructure deployment
 - Delivery and automation: Terraform, GitHub, FluxCD, Jenkins, Codefresh, Python, Bash, and Golang
 - Security and governance: AWS Organizations, SCPs, IAM, network segmentation, Kubernetes policy, and secure platform design
 - Networking: VPC design, subnets, transit gateways, routing, private connectivity, ALB/NLB, ingress, and service-to-service traffic management
@@ -39,4 +40,4 @@ Lead Platform Engineer with 15+ years of experience across cloud infrastructure,
 
 ## Research Interests
 
-Deep learning, artificial intelligence, and cybersecurity across both defensive and offensive domains.
+Deep learning, artificial intelligence, agentic AI systems, retrieval-augmented generation (RAG), machine learning engineering, and cybersecurity across both defensive and offensive domains.
