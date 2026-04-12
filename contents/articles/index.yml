@@ -72,3 +72,8 @@ articles:
     summary: A single-script local Kubernetes sandbox with Kind, ArgoCD, Prometheus, Grafana, and locally stored Helm charts for repeatable GitOps testing.
     topic: Kubernetes
     date: 2026-01-25
+  - file: kubernetes-cost-optimizer.md
+    title: Kubernetes Cost Optimizer
+    summary: An AI-powered Kubernetes cost optimisation app with a seven-step agent pipeline, live SSE progress, and FinOps report generation backed by Anthropic or an offline fallback.
+    topic: AI
+    date: 2026-04-12
