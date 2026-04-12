@@ -1,6 +1,6 @@
 # How to Allow Traffic on Custom Port 8443 to EKS via NLB and Istio Ingress Gateway
 
-![Author Nashwan](https://img.shields.io/badge/Author-Nashwan%20Mustafa-orange.svg?style=flat-square)
+![Author Nashwan](https://img.shields.io/badge/Author-Nashwan%20Mustafa-7a2840.svg?style=flat-square)
 
 To allow traffic on custom port **8443** to an EKS cluster via an **NLB** to the **Istio Ingress Gateway** and all the way to the pods—while considering that the **Gatekeeper policy** only allows Istio Gateway configuration on port **443**—follow these steps:
 
@@ -139,5 +139,4 @@ Apply the updated configurations and verify that traffic on **port 8443** is cor
 2. [How to expose custom ports on Istio ingress gateway - Learn Cloud Native](https://learncloudnative.com/blog/2022-08-01-istio-gateway)
 3. [Istio / Ingress Gateway without TLS Termination](https://istio.io/latest/docs/tasks/traffic-management/ingress/ingress-sni-passthrough/)
 4. [Ingress Gateways - Istio](https://istio.io/latest/docs/tasks/traffic-management/ingress/ingress-control/)
-
 

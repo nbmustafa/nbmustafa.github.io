@@ -1,6 +1,6 @@
 ## Deploy NodeJs App to Kubernetes with helm
 
-![Author Nashwan](https://img.shields.io/badge/Author-Nashwan%20Mustafa-orange.svg?style=flat-square)
+![Author Nashwan](https://img.shields.io/badge/Author-Nashwan%20Mustafa-7a2840.svg?style=flat-square)
 
 in this Article I will explain how to build, publish nodejs app to docker registery and then deploy the built image of nodejs app to minikube with helm. 
 
@@ -504,4 +504,3 @@ But there is still one thing left, which holds us from establishing a fully decl
 
 
 For more articles see [My Github Page](https://nbmustafa.github.io).
-

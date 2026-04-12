@@ -1,7 +1,7 @@
 
 # Cost-Optimization with Shared VPC Endpoints in a Multi-Account TGW Setup
 
-![Author Nashwan](https://img.shields.io/badge/Author-Nashwan%20Mustafa-orange.svg?style=flat-square)
+![Author Nashwan](https://img.shields.io/badge/Author-Nashwan%20Mustafa-7a2840.svg?style=flat-square)
 
 ---
 
@@ -161,5 +161,4 @@ Steps to associate a PHZ in **Account A** with a VPC in **Account B**:
 ---
 
 ✅ This architecture achieves **significant cost savings**, simplifies management, and maintains security for organizations with 1,000+ AWS accounts.
-
 
