@@ -19,11 +19,11 @@
     --panel-shadow: rgba(44, 51, 58, 0.10);
     --body-text: #23303c;
     --body-soft: #5b6672;
-    --nav-surface: linear-gradient(180deg, rgba(214, 221, 228, 0.96) 0%, rgba(202, 211, 220, 0.94) 100%);
-    --nav-border: rgba(93, 104, 116, 0.16);
-    --nav-shadow: rgba(55, 63, 72, 0.10);
-    --nav-link: #23303c;
-    --nav-link-hover: #111a22;
+    --nav-surface: linear-gradient(135deg, rgba(119, 145, 150, 0.96) 0%, rgba(95, 120, 129, 0.95) 45%, rgba(83, 98, 110, 0.96) 100%);
+    --nav-border: rgba(51, 74, 82, 0.28);
+    --nav-shadow: rgba(35, 49, 56, 0.18);
+    --nav-link: #f4f8f8;
+    --nav-link-hover: #ffffff;
 }
 
 .header {
