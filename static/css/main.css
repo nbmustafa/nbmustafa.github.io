@@ -22,7 +22,7 @@
     --nav-surface: linear-gradient(135deg, rgba(119, 145, 150, 0.96) 0%, rgba(95, 120, 129, 0.95) 45%, rgba(83, 98, 110, 0.96) 100%);
     --nav-border: rgba(51, 74, 82, 0.28);
     --nav-shadow: rgba(35, 49, 56, 0.18);
-    --nav-link: #f4f8f8;
+    --nav-link: #ffffff;
     --nav-link-hover: #ffffff;
 }
 
