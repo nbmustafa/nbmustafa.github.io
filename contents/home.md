@@ -1,4 +1,11 @@
-[LinkedIn](https://www.linkedin.com/in/nashwan-mustafa/) | [GitHub](https://github.com/nbmustafa) | [Articles](index_articles.html)
+<div class="social-links">
+  <a class="social-link social-link-linkedin" href="https://www.linkedin.com/in/nashwan-mustafa/" aria-label="LinkedIn">
+    <i class="bi bi-linkedin"></i>
+  </a>
+  <a class="social-link social-link-github" href="https://github.com/nbmustafa" aria-label="GitHub">
+    <i class="bi bi-github"></i>
+  </a>
+</div>
 
 ## Hi, I'm Nashwan
 
