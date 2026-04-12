@@ -19,13 +19,18 @@
     --panel-shadow: rgba(44, 51, 58, 0.10);
     --body-text: #23303c;
     --body-soft: #5b6672;
-    --nav-surface: rgba(224, 230, 236, 0.92);
+    --nav-surface: linear-gradient(180deg, rgba(214, 221, 228, 0.96) 0%, rgba(202, 211, 220, 0.94) 100%);
+    --nav-border: rgba(93, 104, 116, 0.16);
+    --nav-shadow: rgba(55, 63, 72, 0.10);
+    --nav-link: #23303c;
+    --nav-link-hover: #111a22;
 }
 
 .header {
-    border-bottom: solid 2px var(--bs-blue);
+    border-bottom: 1px solid var(--nav-border);
     background: var(--nav-surface);
     backdrop-filter: blur(10px);
+    box-shadow: 0 0.65rem 1.8rem var(--nav-shadow);
 }
 
 .bg-bottom {
@@ -40,14 +45,23 @@ body {
 .navbar-light .navbar-brand,
 .navbar-light .navbar-nav .nav-link,
 .navbar-light .navbar-toggler {
-    color: rgba(33, 43, 54, 0.92);
+    color: var(--nav-link);
 }
 
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link:focus,
 .navbar-light .navbar-brand:hover,
 .navbar-light .navbar-brand:focus {
-    color: #111a22;
+    color: var(--nav-link-hover);
+}
+
+.navbar-light .navbar-brand {
+    letter-spacing: 0.02em;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    font-weight: 700;
+    letter-spacing: 0.04em;
 }
 
 .navbar-light .navbar-toggler {
