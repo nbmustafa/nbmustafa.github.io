@@ -11,7 +11,7 @@ Highly accomplished Cloud and Platform Engineer with 15+ years of experience del
 - Cloud and Kubernetes networking: VPCs, subnets, routing, transit gateways, Direct Connect, ingress, and service-to-service traffic design
 - MLOps and AI: AI agentic orchestration, retrieval-augmented generation (RAG), SageMaker, Bedrock, Hugging Face, Kubeflow, and ML delivery pipelines
 
-## Selected Experience
+## Working Experience
 
 ### Commonwealth Bank
 **Lead Platform Engineer, Public Cloud Container Service**  
