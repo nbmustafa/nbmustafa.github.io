@@ -1,6 +1,6 @@
 # EKS Cross-Account Access to ECR
 
-![Author Nashwan](https://img.shields.io/badge/Author-Nashwan%20Mustafa-orange.svg?style=flat-square)
+![Author Nashwan](https://img.shields.io/badge/Author-Nashwan%20Mustafa-7a2840.svg?style=flat-square)
 
 To enable an **Amazon EKS** cluster to access an **Amazon ECR** repository across multiple AWS accounts in a multi-tenant environment, follow these steps:
 
@@ -190,4 +190,3 @@ kubectl logs <pod_name>
 3. [ECR Cross Account Access | Security Best Practice - Intelligent Discovery](https://intelligentdiscovery.io/controls/ecr/ecr-cross-account-access)
 4. [Adding cross-account access to EKS - DEV Community](https://dev.to/hayderimran7/adding-cross-account-access-to-eks-5ebh)
 5. [AWS Docs – Amazon ECR Cross Account Access](https://docs.aws.amazon.com/AmazonECR/latest/userguide/RepositoryPolicyExamples.html)
-

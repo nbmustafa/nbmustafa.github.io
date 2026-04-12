@@ -2,7 +2,7 @@
 
 
 :root{
-    --h-title-color:#f0522e;
+    --h-title-color:#6e2238;
     --surface-color: linear-gradient(180deg, #dde3e9 0%, #cfd7df 100%);
     --border-soft: rgba(86, 96, 108, 0.14);
     --text-muted: #56616d;
@@ -19,12 +19,12 @@
     --panel-shadow: rgba(44, 51, 58, 0.10);
     --body-text: #23303c;
     --body-soft: #5b6672;
-    --nav-surface: linear-gradient(135deg, rgba(76, 116, 138, 0.98) 0%, rgba(58, 95, 119, 0.97) 45%, rgba(45, 77, 100, 0.98) 100%);
-    --nav-border: rgba(30, 53, 73, 0.34);
-    --nav-shadow: rgba(22, 38, 53, 0.24);
+    --nav-surface: linear-gradient(135deg, rgba(118, 42, 66, 0.98) 0%, rgba(96, 31, 52, 0.97) 45%, rgba(73, 22, 39, 0.98) 100%);
+    --nav-border: rgba(64, 17, 31, 0.34);
+    --nav-shadow: rgba(43, 11, 22, 0.24);
     --nav-link: #ffffff;
     --nav-link-hover: #ffffff;
-    --footer-surface: linear-gradient(135deg, #51758a 0%, #3f647c 45%, #35556d 100%);
+    --footer-surface: linear-gradient(135deg, #762a42 0%, #602034 45%, #491627 100%);
 }
 
 .header {
@@ -343,12 +343,12 @@ main.page-header .container {
 }
 
 .article-card-title a {
-    color: #3f647c;
+    color: #6e2238;
 }
 
 .article-card-title a:hover,
 .article-card-title a:focus {
-    color: #2f5268;
+    color: #531728;
 }
 
 .article-card-summary {
@@ -377,12 +377,12 @@ main.page-header .container {
 }
 
 .article-card-link a {
-    color: #b94124;
+    color: #7a2840;
 }
 
 .article-card-link a:hover,
 .article-card-link a:focus {
-    color: #8f2f18;
+    color: #531728;
 }
 
 .main-body h2,
@@ -397,7 +397,7 @@ main.page-header .container {
 }
 
 .main-body a {
-    color: #c04828;
+    color: #7a2840;
 }
 
 .main-body a:hover,
@@ -406,7 +406,7 @@ main.page-header .container {
 .section-link a:focus,
 .article-back-link a:hover,
 .article-back-link a:focus {
-    color: #8f2f18;
+    color: #531728;
 }
 
 .main-body hr {

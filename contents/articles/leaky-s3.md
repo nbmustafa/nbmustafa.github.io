@@ -1,7 +1,7 @@
 
 # Protecting AWS Environments from Accessing Leaky Public S3 Buckets
 
-![Author Nashwan](https://img.shields.io/badge/Author-Nashwan%20Mustafa-orange.svg?style=flat-square)
+![Author Nashwan](https://img.shields.io/badge/Author-Nashwan%20Mustafa-7a2840.svg?style=flat-square)
 
 ---
 

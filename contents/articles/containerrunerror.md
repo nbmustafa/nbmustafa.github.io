@@ -1,6 +1,6 @@
 # 🚀 Common Causes of RunContainerError and How to Solve It
 
-![Author Nashwan](https://img.shields.io/badge/Author-Nashwan%20Mustafa-orange.svg?style=flat-square)
+![Author Nashwan](https://img.shields.io/badge/Author-Nashwan%20Mustafa-7a2840.svg?style=flat-square)
 
 In **Kubernetes**, the **RunContainerError** occurs when a container within a pod fails to start due to issues encountered while Kubernetes tries to run it.  
 This error is usually linked to **configuration**, **runtime**, or **container-specific problems**.
@@ -135,4 +135,3 @@ Look under the **Events** section for container errors.
 💡 By systematically checking these areas, you can **diagnose and resolve RunContainerError effectively in Kubernetes**.
 
 ---
-

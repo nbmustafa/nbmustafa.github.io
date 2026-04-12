@@ -1,6 +1,6 @@
 # Troubleshooting OOMKilled in Kubernetes
 
-![Author Nashwan](https://img.shields.io/badge/Author-Nashwan%20Mustafa-orange.svg?style=flat-square)
+![Author Nashwan](https://img.shields.io/badge/Author-Nashwan%20Mustafa-7a2840.svg?style=flat-square)
 
 ---
 
@@ -160,5 +160,4 @@ To resolve and prevent **OOMKilled** errors:
 By combining these approaches, you can achieve **stable, efficient, and resilient Kubernetes workloads**.
 
 ---
-
 

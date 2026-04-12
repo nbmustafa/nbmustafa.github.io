@@ -1,6 +1,6 @@
 ## Shipping Logs from Kubernetes to CloudWatch log groups with fluent-bit
 
-![Author Nashwan](https://img.shields.io/badge/Author-Nashwan%20Mustafa-orange.svg?style=flat-square)
+![Author Nashwan](https://img.shields.io/badge/Author-Nashwan%20Mustafa-7a2840.svg?style=flat-square)
 
 in this Article I will explain how to configure fluent-bit on EKS for shipping container logs to CloudWatch Log Group. 
 
@@ -174,5 +174,4 @@ Source:
 (8) github.com. https://github.com/shagamemnon/cloudflare-to-cloudwatch/tree/34ebdad440dabb1bb3e2a7f270e2e2e000933558/README.md.
 (9) github.com. https://github.com/happy-nut/happy-nut.github.io/tree/0e68a5dbba37c4947b3db19d099b8f1f608e8efa/tils%2Fdev%2Fops%2Fkubernetes%2Fk8s-monitoring.md.
 (10) github.com. https://github.com/YuanyaTianchi/yuanyatianchi.github.io/tree/2293e3ddc056e16b29b47b812859a68f01a93950/0%2Fit.cloudnative.Kubernetes.base.md.
-
 

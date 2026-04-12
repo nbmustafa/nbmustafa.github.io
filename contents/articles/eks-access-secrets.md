@@ -1,6 +1,6 @@
 # EKS: Enabling Cross-Account Access to Secrets Stored in AWS Secrets Manager
 
-![Author Nashwan](https://img.shields.io/badge/Author-Nashwan%20Mustafa-orange.svg?style=flat-square)
+![Author Nashwan](https://img.shields.io/badge/Author-Nashwan%20Mustafa-7a2840.svg?style=flat-square)
 
 This guide explains how to enable **cross-account access** to AWS Secrets Manager secrets from an Amazon EKS cluster using **IAM Roles for Service Accounts (IRSA)**.
 
@@ -173,5 +173,4 @@ This guide explains how to enable **cross-account access** to AWS Secrets Manage
 * [Enabling Cross-Account Access to EKS Cluster Resources](https://aws.amazon.com/blogs/containers/enabling-cross-account-access-to-amazon-eks-cluster-resources/)
 * [Provide Access to Other IAM Users and Roles After Cluster Creation](https://repost.aws/knowledge-center/amazon-eks-cluster-access)
 * [Xebia: Accessing AWS Secrets Manager in EKS](https://xebia.com/blog/how-to-access-your-aws-secret-manager-secrets-in-an-elastic-kubernetes-service-cluster/)
-
 
