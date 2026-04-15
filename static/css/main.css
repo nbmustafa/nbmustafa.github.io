@@ -519,18 +519,21 @@ main.page-header .container {
 
     .top-section {
         height: auto;
-        min-height: 22rem;
-        padding: 8rem 0 4rem;
+        min-height: 18rem;
+        padding: 7rem 0 1.5rem;
+        overflow: visible;
     }
 
     .photo {
         display: flex;
         justify-content: center;
+        align-items: flex-end;
     }
 
     .photo img {
         height: 10rem;
-        margin-top: 1.5rem;
+        margin-top: 2rem;
+        margin-bottom: -3.2rem;
         margin-right: 0;
     }
 
@@ -539,7 +542,9 @@ main.page-header .container {
 @media screen and (max-width: 736px) {
 
     .top-section {
-        padding: 7rem 0 3rem;
+        min-height: 15rem;
+        padding: 6.5rem 0 1rem;
+        overflow: visible;
     }
 
     .article-grid,
@@ -549,7 +554,8 @@ main.page-header .container {
 
     .photo img {
         height: 8rem;
-        margin-top: 1rem;
+        margin-top: 1.25rem;
+        margin-bottom: -2.6rem;
         margin-right: 0;
     }
 
