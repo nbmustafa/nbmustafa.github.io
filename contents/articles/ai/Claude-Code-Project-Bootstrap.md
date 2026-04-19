@@ -1,10 +1,7 @@
-This script is a powerful utility designed to bootstrap a professional-grade development environment for **Claude Code**. It ensures that your project structure is optimized for GenAI workflows, providing Claude with the necessary context, rules, and tools to assist you effectively.
-
----
-
 # 🚀 Claude Code Project Bootstrap
 
-This repository contains a specialized automation script to instantly scaffold a **Claude Code / GenAI.works** environment. It creates a standardized directory structure and essential configuration files to enhance Claude's reasoning, tool-use, and project awareness.
+This script is a powerful utility designed to bootstrap a professional-grade development environment for **Claude Code**. It ensures that your project structure is optimized for GenAI workflows, providing Claude with the necessary context, rules, and tools to assist you effectively.
+
 
 ## 📂 Project Structure
 
