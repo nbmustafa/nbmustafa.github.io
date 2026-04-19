@@ -1,4 +1,4 @@
-# Kubernetes Sandbox Bootstrap
+# Kubernetes Sandbox
 
 If you want a fast, repeatable way to stand up a local Kubernetes environment with GitOps and monitoring included, this pattern is designed for exactly that.
 

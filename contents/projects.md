@@ -56,5 +56,5 @@ I also maintain practical Kubernetes learning scenarios in Killercoda.
 
 - [killercoda.com/nashwan](https://killercoda.com/nashwan)
 - [Kubernetes Sandbox Bootstrap](article.html?file=kubernetes%2Fkubernetes-sandbox.md)
-- [Kubernetes Cost Optimizer](article.html?file=ai%2Fkubernetes-cost-optimizer.md)
-- [Kubernetes Cost Optimizer codebase](https://github.com/nbmustafa/k8s-finizer)
+- [Kubernetes Cost Optimizer](article.html?file=ai%2Fkubernetes-cost-optimizer.md) [codebase](https://github.com/nbmustafa/k8s-finizer)
+- [Claude Code Project Bootstrap](article.html?file=ai%2Claude-Code-Project-Bootstrap.md)
