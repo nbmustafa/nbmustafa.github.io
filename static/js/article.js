@@ -3,29 +3,10 @@ function getQueryParam(param) {
     return urlParams.get(param);
 }
 
-function loadArticleMetadata(fileName) {
-    return fetch('contents/articles/index.yml')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Failed to load article metadata');
-            }
-            return response.text();
-        })
-        .then(text => {
-            const articleManifest = jsyaml.load(text);
-            const articles = articleManifest.articles || [];
-            return articles.find(article => article.file === fileName);
-        })
-        .catch(error => {
-            console.error('Error loading article metadata:', error);
-            return null;
-        });
-}
-
 function loadArticle(fileName) {
     marked.use({ mangle: false, headerIds: false });
 
-    fetch(`contents/articles/${fileName}`)
+    fetch(`${window.ArticleCatalog.contentDir}${window.ArticleCatalog.articleRootDir}${fileName}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Failed to load ${fileName}: ${response.statusText}`);
@@ -44,6 +25,26 @@ function loadArticle(fileName) {
         });
 }
 
+async function loadArticleMeta(fileName) {
+    const metaNode = document.getElementById('article-meta-date');
+    if (!metaNode) {
+        return;
+    }
+
+    try {
+        const createdDate = await window.ArticleCatalog.fetchArticleCreatedDate(fileName);
+        if (!createdDate) {
+            metaNode.remove();
+            return;
+        }
+
+        metaNode.textContent = `Published ${window.ArticleCatalog.formatArticleDate(createdDate)}`;
+    } catch (error) {
+        console.warn('Unable to load article date:', error);
+        metaNode.remove();
+    }
+}
+
 window.addEventListener('DOMContentLoaded', () => {
     const fileName = getQueryParam('file');
     if (!fileName) {
@@ -51,11 +52,9 @@ window.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    loadArticleMetadata(fileName).then(article => {
-        if (article) {
-            document.title = `${article.title} | Nashwan Mustafa`;
-        }
-    });
+    const articleTitle = window.ArticleCatalog.titleFromFileName(fileName);
+    document.title = `${articleTitle} | Nashwan Mustafa`;
 
+    loadArticleMeta(fileName);
     loadArticle(fileName);
 });
