@@ -1,0 +1,42 @@
+name: Update Article Index
+
+on:
+  push:
+    paths:
+      - 'contents/articles/**'
+      - '.github/scripts/generate-article-index.mjs'
+      - '.github/workflows/update-article-index.yml'
+  workflow_dispatch:
+
+jobs:
+  update-index:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate article metadata
+        run: node .github/scripts/generate-article-index.mjs
+
+      - name: Commit generated index
+        run: |
+          if git diff --quiet -- contents/articles/index.json; then
+            echo "No article index changes detected."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add contents/articles/index.json
+          git commit -m "Auto-update article index [skip ci]"
+          git push
