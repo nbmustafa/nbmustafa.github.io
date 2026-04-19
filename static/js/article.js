@@ -6,7 +6,7 @@ function getQueryParam(param) {
 function loadArticle(fileName) {
     marked.use({ mangle: false, headerIds: false });
 
-    fetch(`${window.ArticleCatalog.contentDir}${window.ArticleCatalog.articleRootDir}${fileName}`)
+    fetch(`${window.ArticleCatalog.contentDir}articles/${fileName}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Failed to load ${fileName}: ${response.statusText}`);
@@ -25,24 +25,26 @@ function loadArticle(fileName) {
         });
 }
 
-async function loadArticleMeta(fileName) {
+function loadArticleMeta(fileName) {
     const metaNode = document.getElementById('article-meta-date');
     if (!metaNode) {
         return;
     }
 
-    try {
-        const createdDate = await window.ArticleCatalog.fetchArticleCreatedDate(fileName);
-        if (!createdDate) {
-            metaNode.remove();
-            return;
-        }
+    window.ArticleCatalog.loadArticleManifest()
+        .then(articles => articles.find(article => article.file === fileName))
+        .then(article => {
+            if (!article || !article.date) {
+                metaNode.remove();
+                return;
+            }
 
-        metaNode.textContent = `Published ${window.ArticleCatalog.formatArticleDate(createdDate)}`;
-    } catch (error) {
-        console.warn('Unable to load article date:', error);
-        metaNode.remove();
-    }
+            metaNode.textContent = `Published ${window.ArticleCatalog.formatArticleDate(article.date)}`;
+        })
+        .catch(error => {
+            console.warn('Unable to load article metadata:', error);
+            metaNode.remove();
+        });
 }
 
 window.addEventListener('DOMContentLoaded', () => {
