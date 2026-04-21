@@ -155,7 +155,7 @@ main.page-header .container {
     margin-bottom: 1.4rem;
 }
 
-social-link {
+.social-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
