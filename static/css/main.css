@@ -185,6 +185,11 @@ main.page-header .container {
     color: #ffffff !important;
 }
 
+.social-link-huggingface {
+    background: #ffd21e;
+    color: #000000 !important;
+}
+
 .section-intro,
 .section-link,
 .article-back-link {
