@@ -155,7 +155,7 @@ main.page-header .container {
     margin-bottom: 1.4rem;
 }
 
-.social-link {
+social-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -166,6 +166,10 @@ main.page-header .container {
     text-decoration: none;
     box-shadow: 0 0.8rem 1.6rem rgba(46, 56, 65, 0.14);
     transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+    
+    /* ADD THIS: ensures emojis/icons don't add extra height */
+    line-height: 1; 
+    overflow: hidden; 
 }
 
 .social-link:hover,
@@ -187,7 +191,7 @@ main.page-header .container {
 
 .social-link-huggingface {
     background: #ffd21e;
-    color: #000000 !important;
+    color: #000000; 
 }
 
 .section-intro,

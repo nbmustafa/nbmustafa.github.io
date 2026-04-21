@@ -6,7 +6,7 @@
     <i class="bi bi-github"></i>
   </a>
   <a class="social-link social-link-huggingface" href="https://huggingface.co/nbmustafa" aria-label="Hugging Face">
-    <span style="font-style: normal; font-size: 1.1em;">🤗</span>
+    <span>🤗</span>
   </a>
 </div>
 
