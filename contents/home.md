@@ -5,6 +5,9 @@
   <a class="social-link social-link-github" href="https://github.com/nbmustafa" aria-label="GitHub">
     <i class="bi bi-github"></i>
   </a>
+  <a class="social-link social-link-huggingface" href="https://huggingface.co/nbmustafa" aria-label="Hugging Face">
+    <i class="bi bi-hf"></i>
+  </a>
 </div>
 
 ## Hi, I'm Nashwan
