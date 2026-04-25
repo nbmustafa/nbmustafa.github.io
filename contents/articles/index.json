@@ -1,8 +1,8 @@
 {
   "articles": [
     {
-      "file": "ai/Owm-your-AI-Infra-with-ollama-and-OpenClaw.md",
-      "title": "Owm Your AI Infra With Ollama And Open Claw",
+      "file": "ai/Own-your-AI-Infra-with-ollama-and-OpenClaw.md",
+      "title": "Own Your AI Infra With Ollama And Open Claw",
       "summary": "By combining OpenClaw and Ollama, you move from being a consumer of AI to an owner of an autonomous AI infrastructure. While Ollama handles the \"brain\" (the models), OpenClaw provides the \"body\" (the ability to take a...",
       "topic": "AI",
       "date": "2026-04-25",
