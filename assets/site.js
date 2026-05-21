@@ -3,6 +3,7 @@ const SITE_FILES = {
   home: '../contents/home.md',
   projects: '../contents/projects.md',
   profile: '../contents/profile.md',
+  handson: '../contents/handson.md',
   academic: '../contents/academic.md',
   articlesIndex: '../contents/articles/index.json'
 };
@@ -332,6 +333,39 @@ function syncSelectedTopicForArticle(file) {
   return article;
 }
 
+function buildArticleCard(article, options = {}) {
+  const linkLabel = options.linkLabel || 'Open article';
+  const extraLink = options.extraLink
+    ? '<a href="' + escapeAttr(options.extraLink.href) + '" class="article-link" target="_blank" rel="noreferrer">' + escapeHtml(options.extraLink.label) + ' <span>→</span></a>'
+    : '';
+
+  return (
+    '<article class="article-card">' +
+      '<div class="article-meta">' +
+        '<span class="article-topic">' + escapeHtml(article.topic || 'Article') + '</span>' +
+        '<span>' + formatDate(article.date) + '</span>' +
+        (article.featured ? '<span>Featured</span>' : '') +
+      '</div>' +
+      '<h4 class="article-title">' + escapeHtml(article.title) + '</h4>' +
+      '<p class="article-summary">' + escapeHtml(article.summary || '') + '</p>' +
+      '<div class="article-card-links">' +
+        '<a href="' + escapeAttr(buildArticleUrl(article.file)) + '" class="article-link" data-article-file="' + article.file + '" data-article-title="' + escapeAttr(article.title) + '">' + escapeHtml(linkLabel) + ' <span>→</span></a>' +
+        extraLink +
+      '</div>' +
+    '</article>'
+  );
+}
+
+function renderHandsOnMarkdown(md) {
+  return renderMarkdown(md, { basePath: '../contents/' })
+    .replace(/<a href="article\.html\?file=([^"]+)" target="_blank" rel="noreferrer">([^<]+)<\/a>/g, (_, file, label) => {
+      const decodedFile = decodeURIComponent(file);
+      const article = state.articles.find((item) => item.file === decodedFile);
+      const articleTitle = article ? article.title : label;
+      return '<a href="' + escapeAttr(buildArticleUrl(decodedFile)) + '" data-article-file="' + escapeAttr(decodedFile) + '" data-article-title="' + escapeAttr(articleTitle) + '">' + label + '</a>';
+    });
+}
+
 function buildHero(config, homeMd, articles) {
   const personName = (config['page-top-title'] || 'Nashwan Mustafa').trim();
   const subtitle = config['home-subtitle'] || 'Platform Engineering | MLOps and AI | Secure Cloud Platforms | Technical Consulting';
@@ -396,13 +430,12 @@ function buildHero(config, homeMd, articles) {
   observeRevealElements(document.getElementById('about'));
 }
 
-function buildProfile(profileMd) {
+function buildProfile(profileMd, handsonMd) {
   const sections = splitSections(profileMd, 2);
   const summarySection = sections.find((section) => /professional summary/i.test(section.title));
   const projectsSection = sections.find((section) => /recent platform projects/i.test(section.title));
   const publicationsSection = sections.find((section) => /academic publications/i.test(section.title));
   const profileIntro = 'Visionary and results-driven Lead Platform Engineer and Tech Lead with over 18 years of experience architecting, securing, and scaling enterprise-grade cloud and Kubernetes infrastructure. A proven track record across major Australian financial institutions (CBA, ANZ, NAB) and government sectors, specializing in driving multi-tenant EKS strategies, GitOps adoption, and cutting-edge GenAI platform automation. Adept at bridging the gap between complex cloud architecture and high-level business value, consistently delivering multi-million dollar cost optimizations, robust security compliance, and massive reductions in operational friction.';
-  const labsBlock = '### Hand-On Labs and Some Recent Personal Interest Works\n- [killercoda.com/nashwan](https://killercoda.com/nashwan)\n- [Kubernetes Sandbox Bootstrap](article.html?file=kubernetes%2Fkubernetes-sandbox.md)\n- [Kubernetes Cost Optimizer](article.html?file=ai%2Fkubernetes-cost-optimizer.md) And here is [codebase](https://github.com/nbmustafa/k8s-finizer)\n- [Claude Code Project Bootstrap](article.html?file=ai%2FClaude-Code-Project-Bootstrap.md)\n- [AI Agent Lab - A Platform for AI Agent Battlings](https://nbmustafa-ai-agent-lab.hf.space/)';
 
   document.getElementById('projectsGrid').innerHTML =
     '<article class="resume-card full reveal resume-launcher">' +
@@ -418,7 +451,7 @@ function buildProfile(profileMd) {
         '<span>Full Resume</span>' +
       '</div>' +
       '<a href="#" class="article-link resume-link" data-profile-file="profile.md" data-profile-title="Professional Profile">Open full profile <span>→</span></a>' +
-      '<div class="rich-markdown resume-labs">' + renderMarkdown(labsBlock, { basePath: '../contents/' }) + '</div>' +
+      '<div class="rich-markdown resume-labs">' + renderHandsOnMarkdown(handsonMd || '') + '</div>' +
     '</article>';
 
   observeRevealElements(document.getElementById('projects'));
@@ -474,18 +507,7 @@ function renderArticleBrowser() {
       '<div class="writing-label">Selected Section</div>' +
       '<h3 class="writing-title">' + state.selectedTopic + '</h3>' +
       '<div class="article-browser-results">' +
-      selectedArticles.map((article) => (
-        '<article class="article-card">' +
-          '<div class="article-meta">' +
-            '<span class="article-topic">' + article.topic + '</span>' +
-            '<span>' + formatDate(article.date) + '</span>' +
-            (article.featured ? '<span>Featured</span>' : '') +
-          '</div>' +
-          '<h4 class="article-title">' + article.title + '</h4>' +
-          '<p class="article-summary">' + article.summary + '</p>' +
-          '<a href="' + escapeAttr(buildArticleUrl(article.file)) + '" class="article-link" data-article-file="' + article.file + '" data-article-title="' + escapeAttr(article.title) + '">Open article <span>→</span></a>' +
-        '</article>'
-      )).join('') +
+      selectedArticles.map((article) => buildArticleCard(article)).join('') +
       '</div>' +
     '</article>';
 
@@ -700,10 +722,11 @@ async function init() {
   setupInteractions();
 
   try {
-    const [configText, homeText, profileText, academicText, articlesIndex] = await Promise.all([
+    const [configText, homeText, profileText, handsonText, academicText, articlesIndex] = await Promise.all([
       fetchText(SITE_FILES.config),
       fetchText(SITE_FILES.home),
       fetchText(SITE_FILES.profile).catch(() => ''),
+      fetchText(SITE_FILES.handson).catch(() => ''),
       fetchText(SITE_FILES.academic).catch(() => ''),
       fetchJson(SITE_FILES.articlesIndex).catch(() => ({ articles: [] }))
     ]);
@@ -714,7 +737,7 @@ async function init() {
     state.socialLinks = homeData.socialLinks;
 
     buildHero(config, homeData.markdown, state.articles);
-    buildProfile(profileText || '## Professional Summary\nA complete professional profile is being prepared.\n');
+    buildProfile(profileText || '## Professional Summary\nA complete professional profile is being prepared.\n', handsonText);
     buildWriting(academicText || '', state.articles);
     buildContact(state.socialLinks);
     syncArticleFromUrl();
