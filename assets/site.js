@@ -358,7 +358,7 @@ function buildArticleCard(article, options = {}) {
 
 function renderHandsOnMarkdown(md) {
   return renderMarkdown(md, { basePath: '../contents/' })
-    .replace(/<a href="article\.html\?file=([^"]+)" target="_blank" rel="noreferrer">([^<]+)<\/a>/g, (_, file, label) => {
+    .replace(/<a href="(?:[^"]*\/)?article\.html\?file=([^"]+)" target="_blank" rel="noreferrer">([^<]+)<\/a>/g, (_, file, label) => {
       const decodedFile = decodeURIComponent(file);
       const article = state.articles.find((item) => item.file === decodedFile);
       const articleTitle = article ? article.title : label;
