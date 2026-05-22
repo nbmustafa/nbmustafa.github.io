@@ -629,7 +629,6 @@ function setupInteractions() {
   const cursor = document.getElementById('cursor');
   const cursorRing = document.getElementById('cursorRing');
   const heroMonogram = document.getElementById('heroMonogram');
-  const finePointer = window.matchMedia('(pointer: fine)').matches;
 
   state.revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -639,39 +638,7 @@ function setupInteractions() {
 
   observeRevealElements(document);
 
-  if (finePointer) {
-    document.body.classList.add('custom-cursor-enabled');
-    const target = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-    const ring = { x: target.x, y: target.y };
-
-    const render = () => {
-      ring.x += (target.x - ring.x) * 0.18;
-      ring.y += (target.y - ring.y) * 0.18;
-      cursor.style.transform = 'translate3d(' + (target.x - 5) + 'px, ' + (target.y - 5) + 'px, 0)';
-      cursorRing.style.transform = 'translate3d(' + (ring.x - 18) + 'px, ' + (ring.y - 18) + 'px, 0)';
-      window.requestAnimationFrame(render);
-    };
-
-    window.addEventListener('mousemove', (event) => {
-      target.x = event.clientX;
-      target.y = event.clientY;
-    });
-    window.addEventListener('mouseleave', () => {
-      cursor.style.opacity = '0';
-      cursorRing.style.opacity = '0';
-    });
-    window.addEventListener('mouseenter', () => {
-      cursor.style.opacity = '1';
-      cursorRing.style.opacity = '1';
-    });
-    document.addEventListener('mouseover', (event) => {
-      if (event.target.closest('a, button')) cursorRing.classList.add('hover');
-    });
-    document.addEventListener('mouseout', (event) => {
-      if (event.target.closest('a, button')) cursorRing.classList.remove('hover');
-    });
-    render();
-  } else {
+  if (cursor && cursorRing) {
     cursor.style.display = 'none';
     cursorRing.style.display = 'none';
   }
