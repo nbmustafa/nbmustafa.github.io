@@ -1,6 +1,30 @@
 {
   "articles": [
     {
+      "file": "kubernetes/fluent-bit.md",
+      "title": "Fluent Bit",
+      "summary": "in this Article I will explain how to configure fluent-bit on EKS for shipping container logs to CloudWatch Log Group.",
+      "topic": "Kubernetes",
+      "date": "2026-05-25",
+      "featured": false
+    },
+    {
+      "file": "kubernetes/ingress-istio-traffic-Custom-Port.md",
+      "title": "Ingress Istio Traffic Custom Port",
+      "summary": "To allow traffic on custom port 8443 to an EKS cluster via an NLB to the Istio Ingress Gateway and all the way to the pods—while considering that the Gatekeeper policy only allows Istio Gateway configuration on port 4...",
+      "topic": "Kubernetes",
+      "date": "2026-05-25",
+      "featured": false
+    },
+    {
+      "file": "kubernetes/kube-prometheus-grafana.md",
+      "title": "Kube Prometheus Grafana",
+      "summary": "A comprehensive set of Prometheus rules and a Grafana dashboard for Kubernetes cluster health monitoring:",
+      "topic": "Kubernetes",
+      "date": "2026-05-25",
+      "featured": false
+    },
+    {
       "file": "ai/Own-your-AI-Infra-with-ollama-and-OpenClaw.md",
       "title": "Own Your AI Infra With Ollama And Open Claw",
       "summary": "By combining OpenClaw and Ollama, you move from being a consumer of AI to an owner of an autonomous AI infrastructure. While Ollama handles the \"brain\" (the models), OpenClaw provides the \"body\" (the ability to take a...",
@@ -81,34 +105,10 @@
       "featured": true
     },
     {
-      "file": "observability/fluent-bit.md",
-      "title": "Fluent Bit",
-      "summary": "in this Article I will explain how to configure fluent-bit on EKS for shipping container logs to CloudWatch Log Group.",
-      "topic": "Observability",
-      "date": "2026-04-19",
-      "featured": false
-    },
-    {
-      "file": "kubernetes-networking/ingress-istio-traffic-Custom-Port.md",
-      "title": "Ingress Istio Traffic Custom Port",
-      "summary": "To allow traffic on custom port 8443 to an EKS cluster via an NLB to the Istio Ingress Gateway and all the way to the pods—while considering that the Gatekeeper policy only allows Istio Gateway configuration on port 4...",
-      "topic": "Kubernetes Networking",
-      "date": "2026-04-19",
-      "featured": false
-    },
-    {
       "file": "kubernetes/Istio_Ambient_Mode.md",
       "title": "Istio Ambient Mode",
       "summary": "Istio Ambient Mode offers an alternative deployment architecture that eliminates the need for sidecar proxies by using a \"split proxy\" model. Instead of injecting a proxy into every application pod, traffic is managed...",
       "topic": "Kubernetes",
-      "date": "2026-04-19",
-      "featured": false
-    },
-    {
-      "file": "observability/kube-prometheus-grafana.md",
-      "title": "Kube Prometheus Grafana",
-      "summary": "A comprehensive set of Prometheus rules and a Grafana dashboard for Kubernetes cluster health monitoring:",
-      "topic": "Observability",
       "date": "2026-04-19",
       "featured": false
     },
