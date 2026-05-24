@@ -81,18 +81,18 @@
       "featured": true
     },
     {
-      "file": "observability/fluent-bit.md",
+      "file": "Kubernetes/fluent-bit.md",
       "title": "Fluent Bit",
       "summary": "in this Article I will explain how to configure fluent-bit on EKS for shipping container logs to CloudWatch Log Group.",
-      "topic": "Observability",
+      "topic": "Kubernetes",
       "date": "2026-04-19",
       "featured": false
     },
     {
-      "file": "kubernetes-networking/ingress-istio-traffic-Custom-Port.md",
+      "file": "kubernetes/ingress-istio-traffic-Custom-Port.md",
       "title": "Ingress Istio Traffic Custom Port",
       "summary": "To allow traffic on custom port 8443 to an EKS cluster via an NLB to the Istio Ingress Gateway and all the way to the pods—while considering that the Gatekeeper policy only allows Istio Gateway configuration on port 4...",
-      "topic": "Kubernetes Networking",
+      "topic": "Kubernetes",
       "date": "2026-04-19",
       "featured": false
     },
@@ -105,10 +105,10 @@
       "featured": false
     },
     {
-      "file": "observability/kube-prometheus-grafana.md",
+      "file": "kubernetes/kube-prometheus-grafana.md",
       "title": "Kube Prometheus Grafana",
       "summary": "A comprehensive set of Prometheus rules and a Grafana dashboard for Kubernetes cluster health monitoring:",
-      "topic": "Observability",
+      "topic": "Kubernetes",
       "date": "2026-04-19",
       "featured": false
     },
