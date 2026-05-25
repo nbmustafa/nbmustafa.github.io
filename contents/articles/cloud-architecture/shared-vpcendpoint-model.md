@@ -5,7 +5,7 @@
 
 ---
 
-## 📌 Overview
+## Overview
 
 The cost of **VPC Endpoints** can escalate quickly in multi-account AWS environments. While **Interface Endpoints** provide a scalable way to connect to AWS services, deploying them per-VPC across multiple Availability Zones (AZs) becomes cost-prohibitive.  
 
@@ -28,13 +28,13 @@ At scale (e.g., 100 accounts, each with 10 endpoints), the cost reaches **$21,60
 
 ---
 
-## 💡 The Shared VPC Endpoint Model
+## The Shared VPC Endpoint Model
 
 By centralizing VPC endpoints into a **Shared Services VPC** and connecting accounts using **AWS Transit Gateway (TGW)**, organizations can drastically reduce costs, simplify management, and optimize operations.
 
 ---
 
-## 🔑 How This Achieves Cost Savings
+## How This Achieves Cost Savings
 
 1. **Elimination of Redundant Endpoints**
  - Decentralized: 1,000 accounts × 10 endpoints × 3 AZs = **$270,000/month**.  
@@ -150,7 +150,7 @@ Steps to associate a PHZ in **Account A** with a VPC in **Account B**:
 
 ---
 
-## 📚 References
+## References
 
 * [Centralized VPC Endpoint Model for Cost Savings](https://allcloud.io/go/reduce-costs-and-boost-security-with-centralized-vpc-shared-endpoints-model/)
 * [Shared VPC Endpoints with TGW](https://medium.com/@KiranNalla3/aws-cost-savings-by-using-shared-vpc-interface-endpoints-in-a-multi-account-tgw-setup-f58b8ed90c72)
